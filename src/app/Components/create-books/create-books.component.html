@@ -1,0 +1,69 @@
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col">
+      <div id="box">
+        <h3 style="text-align: center;">FILL DETAILS TO CREATE BOOK</h3>
+        <div id="items">
+
+          Enter Title of Book
+          <div class="col">
+            <input type="text" class="form-control" placeholder="Title" [(ngModel)]=book.title aria-label="Title">
+          </div>
+          <br>
+          Enter Category of Book
+          <div class="col">
+            <input type="text" class="form-control" placeholder="Category" [(ngModel)]=book.category
+              aria-label="Category">
+          </div>
+          <br>
+          Enter Image URL of Book
+          <div class="col">
+            <input type="text" class="form-control" placeholder="Image" [(ngModel)]=book.image aria-label="Image">
+          </div>
+          <br>
+          Enter Price of Book
+          <div class="col">
+            <input type="number" class="form-control" placeholder="Price" [(ngModel)]=book.price aria-label="Price">
+          </div>
+          <br>
+          Enter Publisher of Book
+          <div class="col">
+            <input type="text" class="form-control" placeholder="Publisher" [(ngModel)]=book.publisher
+              aria-label="Publisher">
+          </div>
+          <br>
+          Enter Status of Book
+          <div class="col">
+            <input type="text" class="form-control" placeholder="Active" [(ngModel)]=book.active aria-label="Active">
+          </div>
+          <br>
+          Enter Content of Book
+          <div class="col">
+            <input type="text" class="form-control" placeholder="Content" [(ngModel)]=book.content aria-label="Content">
+          </div>
+          <br>
+          Enter Author Name of Book
+          <div class="col">
+            <input type="text" class="form-control" placeholder="Author Name" [(ngModel)]=book.authorName
+              aria-label="Author Name">
+          </div>
+          <br>
+          Enter Released Date of Book
+          <div class="col">
+            <input type="date" class="form-control" placeholder="Released Date" [(ngModel)]=book.releasedDate
+              aria-label="ReleasedDate">
+              
+          </div>
+          <br>
+        </div>
+        <br>
+        
+
+        <br>
+        <button type="button" class="btn btn-success" (click)="save()">Success</button>
+        
+      </div>
+    </div>
+  </div>
+</div>

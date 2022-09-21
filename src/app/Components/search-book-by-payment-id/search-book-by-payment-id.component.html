@@ -1,0 +1,67 @@
+<br>
+<div class = "container-fluid">  
+
+  
+  Enter Payment Id
+  <div class="col">
+    <input type="number" class="form-control" placeholder="paymentId" 
+     [(ngModel)]=paymentId >
+  </div>
+  <br>
+  
+  
+<br>  
+    <button class="btn btn-primary"  type="button" (click)="showListofPurchasedBookByPaymentId(paymentId)">
+      Seach Books for Payment Id</button>
+ 
+  
+
+
+  <br>  
+
+
+  
+
+
+  <div class="container py-5">
+    <h3 class="text-center text-uppercase">Book details for Given Payment  Id</h3>
+    <table class="table table-striped table-hover">
+        <thead>
+          <tr>
+            <th scope="col">Image</th>
+            <th scope="col">Title</th>
+            <th scope="col">Price</th>
+           
+            <th scope="col">Purchased Date</th>
+            <th scope="col">Number of Books</th>
+            <th scope="col">Total Amount Paid</th>
+        
+          </tr>
+        </thead>
+  <tbody  *ngFor="let book of listBook">
+          <tr>
+            <td>
+              <img src={{book.image}} alt="No Image"  style="width: 60px;height: 60px;">
+            </td>
+            <td>
+             {{book.title}}
+            </td>
+            <td>
+              {{book.price}}
+            </td>
+           
+            <td>
+              {{book.payment_date|date}}
+            </td>
+            <td>
+              {{book.totalNumber}}
+            </td>
+            <td>
+              {{book.totalAmount}}
+            </td>
+          
+          </tr>
+        </tbody>
+      </table>
+  </div>
+</div>

@@ -1,0 +1,111 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col">
+      <div id="box">
+        <h3 style="text-align: center;">Update Any Field Of Your Book</h3>
+        <div id="items">
+
+    Enter Title of Book
+  <div class="col">
+      <input type="text" class="form-control" placeholder="Title" 
+      [(ngModel)]=book.title >
+    </div>
+    Enter Author Name of Book
+    <div class="col">
+      <input type="text" class="form-control" placeholder="Author Name" 
+      [(ngModel)]=book.authorName >
+    </div>
+    <br>
+    Enter Category of Book
+  <div class="col">
+      <input type="text" class="form-control" placeholder="Category" 
+      [(ngModel)]=book.category >
+    </div>
+    <br>
+      Enter image of book
+    <div class="col">
+      <input type="text" class="form-control" placeholder="Image"
+       [(ngModel)]=book.image >
+    </div>
+    <br>
+    Enter price of book
+    <div class="col">
+        <input type="number" class="form-control" placeholder="Price" 
+        [(ngModel)]=book.price >
+      </div>  
+      Enter publisher of book
+      <div class="col">
+          <input type="text" class="form-control" placeholder="publisher" 
+          [(ngModel)]=book.publisher >
+        </div> 
+        Enter Content of book
+        <div class="col">
+            <input type="text" class="form-control" placeholder="Content" 
+            [(ngModel)]=book.content >
+          </div> 
+          Enter status of book
+          <div class="col">
+              <input type="boolean" class="form-control" placeholder="Active" 
+              [(ngModel)]=book.active >
+            </div> 
+            Enter released Date of book
+            <div class="col">
+                <input type="date" class="form-control" placeholder="Released Date" 
+                [(ngModel)]=book.releasedDate >
+              </div> 
+  <br>  
+      <button class="btn btn-primary" type="button" (click)="update(book)" >Update Book</button>
+   
+    </div>
+  
+    <br>  
+   
+   
+    
+  
+  
+    
+
+<div class="container py-5 text-center tableclr">
+    <h3 class="text-center text-uppercase">Book Table</h3>
+    <table class="table table-bordered table-striped {
+      background-color: burlywood;
+      
+  }">
+      <thead>
+        <tr class="text-center text-uppercase">
+            <th>Book Logo</th>
+            <th>Title</th>
+            <th>Publisher</th>
+            <th>Content</th> 
+            <th>Active</th>
+            <th>Book Category</th> 
+            <th>Price</th>    
+             <th>released  Date</th> 
+             <th>Author Name</th>
+          
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let b of books; let j=index">
+          <td>
+            <img src= {{b.image}} width="60" 
+        height="60" alt="book" class="center">
+          </td>
+          <td>{{b.title}}</td>
+          <td>{{b.publisher}}</td>
+          <td>{{b.content}}</td>
+          <td>{{b.active}}</td>
+          <td>{{b.category}}</td>
+          <td>{{b.price}}</td>
+          <td>{{book.releasedDate|date}}</td>
+          <td>{{b.authorName}}</td>
+          
+          <td><a class="btn btn-success btn-sm rounded-0"(click)="updateBook(b,b.bookId)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil"  viewBox="0 0 16 16">
+            <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/>
+          </svg></a></td>
+          
+        </tr>
+      </tbody>
+    </table>
+  </div>

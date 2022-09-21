@@ -1,0 +1,69 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col">
+      <div id="box">
+        <h3 style="text-align: center;">Search Books Of Any Author Here</h3>
+        <div id="items">
+  Enter Author Name
+  <div class="col">
+    <input type="text" class="form-control" placeholder="Author Name" [(ngModel)]=authorName>
+  </div>
+  <br>
+
+
+  <br>
+  <button class="btn btn-primary" type="button" (click)="searchBooksByAuthor(authorName)">
+    Seach Student Student</button>
+
+
+</div>
+
+<br>
+
+
+
+
+
+<div class="container py-5">
+  <h3 class="text-center text-uppercase">List of BOOKS of this Author</h3>
+  <table class="table table-bordered table-striped tableclr">
+    <thead>
+      <tr class="text-center text-uppercase">
+        <th scope="col">Book Id</th>
+        <th scope="col">Image</th>
+        <th scope="col">Title</th>
+        <th scope="col">Category</th>
+        <th scope="col">Price</th>
+        <th scope="col">Publisher</th>
+        <th scope="col">Active</th>
+        <th scope="col">Author Name</th>
+        <th scope="col">Released Date</th>
+        <th scope="col">Content</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+      <tr *ngFor="let s of books;">
+        <td>{{s.bookId}}</td>
+        <td>
+          <img src= {{s.image}} width="60" 
+      height="60" alt="book" class="center">
+        </td>
+        <td>{{s.title}}</td>
+        <td>{{s.category}}</td>
+        <td>{{s.price}}</td>
+
+        <td>{{s.publisher}}</td>
+        <td>{{s.active}}</td>
+        <td>{{s.authorName}}</td>
+
+        <td>{{s.releasedDate}}</td>
+        <td>{{s.content}}</td>
+
+
+
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,32 @@
+
+<div id="container-fluid">
+    <nav class="navbar navbar-expand navbar-dark bg-dark">
+      <a href="#" class="navbar-brand">Digital-Books</a>
+     
+      <img src="https://th.bing.com/th/id/OIP.jTkftLVqN22oFdbdJ0_y_AHaDj?w=326&h=168&c=7&r=0&o=5&pid=1.7 " width="200"
+      height="100" alt="book">
+      <ul class="navbar-nav mr-auto" routerLinkActive="active">
+        <li class="nav-item">
+            <a href="/aboutus" class="nav-link" routerLink="aboutus">About Digital Books</a>
+           
+        </li>
+        
+      </ul>
+  
+      <ul class="navbar-nav ml-auto" *ngIf="!isLoggedIn">
+        <li class="nav-item">
+          <a href="/signUp" class="nav-link" routerLink="signUp">Sign Up</a>
+        </li>
+        <li class="nav-item">
+          <a href="/login" class="nav-link" routerLink="login">Login</a>
+        </li>
+      </ul>
+  
+     
+    </nav>
+  
+    <div class="container">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+

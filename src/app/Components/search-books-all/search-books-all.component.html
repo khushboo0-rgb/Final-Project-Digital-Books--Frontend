@@ -1,0 +1,169 @@
+
+<div class = container-fluid>
+ 
+  <button type="button" (click)="backPage()" style="margin-bottom: 20px;" class="btn btn-danger">close</button>
+
+  <div id="box" *ngIf="isBuy==false && readable==false">
+  <h3 style="text-align: center;">Search Books</h3>
+  <div id="items">
+    <br>
+    <div class="form-floating mb-3">
+        <label for="floatingInput">Title</label>
+        <input type="text" [(ngModel)]=book.title  class="form-control" id="floatingInput" placeholder="title">    
+      </div>
+      <div class="form-floating mb-3">
+        <label for="floatingInput">Author Name</label>
+        <input type="text" [(ngModel)]=book.authorName  class="form-control" id="floatingInput" placeholder="Author Name">
+       
+      </div>
+      <div class="form-floating mb-3">
+        <label for="floatingInput">Publisher</label>
+        <input type="text" [(ngModel)]=book.publisher  class="form-control" id="floatingInput" placeholder="Publisher">
+       
+      </div>
+  
+    <br>
+    <button type="button" (click)="search()" style="margin-bottom: 20px;" class="btn btn-success">Search</button>
+  </div>
+
+</div>
+
+<br>
+<br>
+
+<div *ngIf="isBuy==false && readable==false">
+  <div *ngIf="listBook.length>0">
+    <h3 style="text-align: center;">Book Table</h3>
+    <br>
+    <div id="items">
+      <table class="table table-striped table-hover">
+        <thead>
+          <tr>
+           
+            <th scope="col">Image</th>
+            <th scope="col">Title</th>
+            <th scope="col">Category</th>
+            <th scope="col">Price</th>
+            <th scope="col">Publisher</th>
+            <th scope="col">Active</th>
+            <th scope="col">Author Name</th>
+            <th scope="col">Released Date</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let book of listBook;index as i">
+          <tr>
+            <td>
+              <img src={{book.image}} style="width: 60px;height: 60px;">
+            </td>
+            <td>
+              {{book.title}}
+            </td>
+            <td>
+              {{book.category}}
+            </td>
+            <td>
+              {{book.price}}
+            </td>
+            <td>
+              {{book.publisher}}
+            </td>
+            <td>
+              {{book.active}}
+            </td>
+            <td>
+              {{book.authorName}}
+            </td>
+            <td>
+              {{book.releasedDate|date}}
+            </td>
+            <td>
+              <button type="button" (click)="read(book)" class="btn btn-success">Read Content</button>
+            </td>
+            <td>
+              <button type="button" (click)="buy(book)" class="btn btn-success">Buy</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+
+<!-- Payment Page -->
+
+<div *ngIf="isBuy==true && readable==false">
+  <h3 style="text-align: center;">SHOPPING BAG</h3>
+  <br>
+  <div id="items">
+    <table class="table table-striped table-hover">
+      <thead>
+        <tr>
+       
+          <th scope="col">Image</th>
+          <th scope="col">Title</th>
+          <th scope="col">Price</th>
+          <th scope="col">Active</th>
+          <th scope="col">Number Of Book</th>
+          <th scope="col">Total</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <img src={{book.image}} style="width: 60px;height: 60px;">
+          </td>
+          <td>
+            {{book.title}}
+          </td>
+          <td>
+            {{book.price }}
+          </td>
+          <td>
+            {{book.active}}
+          </td>
+          <td>
+            <select (load)="totalAmount(book)" [(ngModel)]=numberOfBook class="form-select"
+              aria-label="Default select example" style="width: 30%;">
+              <option value=0>0</option>
+              <option value=1>1</option>
+              <option value=2>2</option>
+              <option value=3>3</option>
+              
+            </select>
+          </td>
+          <td>
+            <span *ngIf="total==0">
+              {{book.price}}
+            </span>
+            <span *ngIf="total>0">
+              {{total}}
+            </span>
+          </td>
+          <td>
+            <button type="button" (click)="payment(book)" class="btn btn-success">Pay</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!--  Read book -->
+<div class="container text-center" *ngIf="readable==true">
+  <div class="row">
+    <div class="col-12">
+  
+        
+          <h5  style="font-size: 20px;">Content</h5>
+          
+            {{this.book.content}}
+       
+  
+        </div>
+      </div>
+    </div>
+ 
+  </div>
